@@ -1,0 +1,24 @@
+---
+dist: bionic
+language: minimal
+
+jobs:
+  include:
+
+    - stage: release
+      install:
+        - wget https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
+        - sudo bash install.sh
+        - nvm install lts/*
+        - npm i -D semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/github @semantic-release/git @semantic-release/exec @commitlint/cli @commitlint/config-conventional
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
+        on:
+          all_branches: true
+
+notifications:
+  slack:
+    secure: cV8F1csfLPtkQ/LDmrbg81vJBPLPRHyJGcmc2PlKWkhGAjDOisgqA5IbCZzjJlsEuNI6N/hJc45Cr0zC5OWtpbicJpmh7Op7xqFFse7Ih0SevJC3Iqkhi7Es/4gVrehjzriCPEEbHS/rdeGeZAh6Xa/VaMiP6nzAGzHSyQKMKStaw7SeugbZLBJAx9OoC1nKCN3BcpYKRG6ze6ennWH4ZmnOj6KVBl16BQurB2gzE7PIiki1UApryHVdj1ylJxF4E8IZdi3/3RSNKcIwi50AFwsI5SQKYOdkxpqfGuyAhAdOP/OM7VOoD47ru34c8gTLm+ndd4uRj0ITTwrmc2OjDlT8wP6tnx7c2x0Z+7hqH4vaWLXtex7ghBb1WrsD7Mn/avrxgX7hy9e6UbRHxMng5i5RApQRpUz4X5QOm+Fcymfhb7lUS4hNmGQmqtL2mtdr6Yci6Eeb2VbrzBckuQ6pEX1hbk1PWFX3IxwJewPmsv1TlvrYxvq/z3Wlm0gZ58vRbTIvOw4VkJpMhCoAFGM4YYxtpuXEQrJUTZonlgwNiY0oteUUjLen3FFyKTP2pNB7ZIx/984X+wADGysxFsq52t33vSNDwvFxb0ZPLV79jWIJnQeGj7dmS6BtKLyqayqagW2b0vDz0X6C01fHNp3zeYzxqmIrrSSJtvTCcCLPei0=
