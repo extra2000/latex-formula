@@ -18,3 +18,10 @@ SaltStack Formula for LaTeX.
 | Ubuntu 20.04 | `x86_64` |
 
 Note: `aarch64` platforms are not yet supported.
+
+
+## Available states
+
+| States | Descriptions |
+| ------ | ------------ |
+| `latex` | Build Latex Podman container. |
