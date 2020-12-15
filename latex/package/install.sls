@@ -1,18 +1,25 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
+{% set user = pillar['latex']['hostuser']['name'] %}
+{% set group = pillar['latex']['hostuser']['group'] %}
+
 latex-dir-present:
   file.directory:
     - name: /opt/latex
+    - user: {{ user }}
+    - group: {{ group }}
 
 latex-dockerfile-present:
   file.managed:
     - name: /opt/latex/Dockerfile
     - source: salt://latex/files/Dockerfile.jinja
+    - user: {{ user }}
+    - group: {{ group }}
     - template: jinja
 
 install-latex:
   cmd.run:
-    - name: sudo sh -c "ulimit -n 524288 && exec su {{ pillar['latex']['user'] }} -c 'podman build --ulimit nofile=1024:524288 -t extra2000/latex .'"
+    - name: podman build -t extra2000/latex .
     - cwd: /opt/latex
-    - runas: {{ pillar['latex']['user'] }}
+    - runas: {{ user }}

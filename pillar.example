@@ -1,2 +1,4 @@
 latex:
-  user: vagrant
+  hostuser:
+    name: vagrant
+    group: vagrant
