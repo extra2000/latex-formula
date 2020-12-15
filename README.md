@@ -1,5 +1,6 @@
 # latex-formula
-SaltStack Formula for LaTeX
+
+SaltStack Formula for LaTeX.
 
 | License | Versioning | Build |
 | ------- | ---------- | ----- |
