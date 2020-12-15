@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+latex:
+  image: extra2000/latex
+  hostuser:
+    name: vagrant
+    group: vagrant
