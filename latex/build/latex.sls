@@ -18,7 +18,7 @@ latex-dockerfile-present:
     - group: {{ LATEX.hostuser.group }}
     - template: jinja
 
-install-latex:
+build-latex:
   cmd.run:
     - name: podman build -t {{ LATEX.image }} .
     - cwd: /opt/latex
