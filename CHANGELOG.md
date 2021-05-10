@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://github.com/extra2000/latex-formula/compare/v2.0.0...v2.0.1) (2021-05-10)
+
+
+### Code Refactoring
+
+* **Dockerfile:** Prefix with `docker.io` ([97bfdbb](https://github.com/extra2000/latex-formula/commit/97bfdbb0b1ae97c61fdab2f855dae2abf33320bc))
+
 ## [2.0.0](https://github.com/extra2000/latex-formula/compare/v1.0.0...v2.0.0) (2021-01-21)
 
 
